@@ -1,0 +1,13 @@
+﻿@model IEnumerable<WebMDW.Models.Project.ProjectModel>
+
+<h2>Все проекта</h2>
+
+<div class="row">
+    <div class="col-md-8">
+     @foreach(var project in Model)
+     {
+         @project.Name @project.Stages @project.Status <br />
+     }
+    </div>
+
+</div>
