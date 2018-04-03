@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using WebMDW.Models;
+using WebMDW.Models.Stage;
+using WebMDW.Models.Status;
 using System.ComponentModel.DataAnnotations;
 
 namespace WebMDW.Models.Project
@@ -30,10 +32,10 @@ namespace WebMDW.Models.Project
         public int ProcentComplete { get; set; }
 
         [Display(Name = "Этап проекта")]
-        public Stage.StageModel Stages { get; set; }
+        public virtual StageModel Stages { get; set; }
 
         [Display(Name = "Статус проекта")]
-        public Status.StatusModel Status { get; set; }
+        public virtual StatusModel Status { get; set; }
 
         public virtual ICollection<ApplicationUser> User { get; set; }
 

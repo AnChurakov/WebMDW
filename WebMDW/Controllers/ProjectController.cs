@@ -17,9 +17,9 @@ namespace WebMDW.Controllers
         ApplicationDbContext _context = new ApplicationDbContext();
 
         [Authorize]
-        public ActionResult Index()
+        public ActionResult MyProjects()
         {
-            var SelectProjectUser = _context.Projects.Select(a => a.User.Select(t => t.UserName == User.Identity.Name));
+            var SelectProjectUser = _context.Projects.Include(t => t.User).ToList();
 
             return View(SelectProjectUser);
         }

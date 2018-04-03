@@ -3,11 +3,47 @@
 <h2>Все проекта</h2>
 
 <div class="row">
-    <div class="col-md-8">
-     @foreach(var project in Model)
-     {
-         @project.Name @project.Stages @project.Status <br />
-     }
+    <div class="col-md-12">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Название проекта</th>
+                    <th scope="col">Статус</th>
+                    <th scope="col">Этап</th>
+                    <th scope="col">Действие</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var project in Model)
+                {
+                <tr>                    
+                    <td>@project.Name</td>
+                    <td>
+                        @if (project.Status.Name == "В работе")
+                        {
+                            <span class="badge badge-pill badge-info">@project.Status.Name</span>
+                        }
+                        else if(project.Status.Name == "Завершен")
+                        {
+                            <span class="badge badge-pill badge-success">@project.Status.Name</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-pill badge-danger">@project.Status.Name</span>
+                        }
+                    </td>
+                    <td>
+                        <span class="badge badge-pill badge-dark">@project.Stages.Name</span> 
+                    </td>
+
+                    <td>
+                        <a href="Project/SelectProject/@project.Id" class="btn btn-primary">Выбрать</a>
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
     </div>
 
 </div>

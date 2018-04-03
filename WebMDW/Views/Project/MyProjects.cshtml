@@ -1,0 +1,23 @@
+﻿@model IEnumerable<WebMDW.Models.Project.ProjectModel>
+
+<h2>Мои проекты</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        @foreach (var myproject in Model)
+        {
+        <div class="card">
+            <div class="card-header">
+                @myproject.Name
+            </div>
+            <div class="card-body">
+                <p class="card-text">Этап: @myproject.Stages.Name</p>
+                <p class="card-text">Статус: @myproject.Status.Name</p>
+                <p class="card-text">Заверешн на: @myproject.ProcentComplete</p>
+                <a href="Project/SelectProject/@myproject.Id" class="btn btn-primary">Посмотреть</a>
+             </div>
+        </div>
+        }
+    </div>
+    
+</div>

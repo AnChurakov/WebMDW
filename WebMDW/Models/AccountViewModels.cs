@@ -6,7 +6,7 @@ namespace WebMDW.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "Адрес электронной почты")]
+        [Display(Name = "Логин")]
         public string Email { get; set; }
     }
 
