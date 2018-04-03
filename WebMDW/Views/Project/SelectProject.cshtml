@@ -14,7 +14,7 @@
 
         @if (User.IsInRole("AdminMDW"))
         {
-            @Html.ActionLink("Добавление задачи", "AddTask", "Task", null, new {id = Model.Id, @class ="btn btn-warning" })
+            @Html.ActionLink("Добавление задачи", "AddTask", "Task", new { id = Model.Id }, new { @class ="btn btn-warning" })
         }
     </div>
     

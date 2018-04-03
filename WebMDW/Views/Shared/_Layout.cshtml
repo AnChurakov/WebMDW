@@ -19,6 +19,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
+       @if (User.Identity.IsAuthenticated)
+       {
         <div class="collapse navbar-collapse" id="navbarColor03">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -64,7 +66,14 @@
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Этапы проекта</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown03">
                     @Html.ActionLink("Добавление", "Index", "Stage", null, new { @class = "dropdown-item" })
-                   
+
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Приоритеты</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown03">
+                    @Html.ActionLink("Добавление", "AddPriority", "Priority", null, new { @class = "dropdown-item" })
+
                 </div>
             </li>
 }
@@ -74,6 +83,7 @@
                 @Html.Partial("_LoginPartial")
             </span>
         </div>
+       }
     </div>
     </nav>
     @*<div class="navbar navbar-inverse navbar-fixed-top">
