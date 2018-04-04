@@ -17,11 +17,13 @@ namespace WebMDW.Models.Task
 
         [Required]
         [Display(Name = "Дата создания задачи")]
-        public DateTime DateBegin { get; set; }
+        public DateTime? DateBegin { get; set; }
 
         [Display(Name = "Дата завершения задачи")]
-        public DateTime DateEnd { get; set; }
+        public DateTime? DateEnd { get; set; }
 
-        public Priority.PriorityModel Priority { get; set; }
+        public virtual Priority.PriorityModel Priority { get; set; }
+
+        public virtual ICollection<Project.ProjectModel> Projects { get; set; }
     }
 }

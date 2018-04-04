@@ -39,5 +39,7 @@ namespace WebMDW.Models.Project
 
         public virtual ICollection<ApplicationUser> User { get; set; }
 
+        public virtual ICollection<Task.TaskModel> Tasks { get; set; }
+
     }
 }

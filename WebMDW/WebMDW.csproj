@@ -230,6 +230,14 @@
     <Compile Include="Migrations\201804030419405_CheckMigration.Designer.cs">
       <DependentUpon>201804030419405_CheckMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804031757453_AddRelationProjectTask.cs" />
+    <Compile Include="Migrations\201804031757453_AddRelationProjectTask.Designer.cs">
+      <DependentUpon>201804031757453_AddRelationProjectTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804040401067_AddNullDateTaskModel.cs" />
+    <Compile Include="Migrations\201804040401067_AddNullDateTaskModel.Designer.cs">
+      <DependentUpon>201804040401067_AddNullDateTaskModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -339,6 +347,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804030419405_CheckMigration.resx">
       <DependentUpon>201804030419405_CheckMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804031757453_AddRelationProjectTask.resx">
+      <DependentUpon>201804031757453_AddRelationProjectTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804040401067_AddNullDateTaskModel.resx">
+      <DependentUpon>201804040401067_AddNullDateTaskModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

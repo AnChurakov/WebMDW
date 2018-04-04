@@ -291,3 +291,5 @@ D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.csproj.CopyComplete
 D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.dll
 D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.pdb
 D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.Migrations.CheckMigration.resources
+D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.Migrations.AddRelationProjectTask.resources
+D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.Migrations.AddNullDateTaskModel.resources
