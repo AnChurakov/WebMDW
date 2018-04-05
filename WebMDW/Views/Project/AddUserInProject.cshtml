@@ -1,0 +1,40 @@
+﻿@using WebMDW.Models.Project
+@using WebMDW.Models
+@model IEnumerable<ApplicationUser>
+
+<h2>Добавление пользователей в проект</h2>
+
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("SaveUserInProject", "Project", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="form-group">
+                    <label class="control-label col-md-5">Пользователи</label>
+                    <div class="col-md-6">
+                        <select class="form-control col-md-5" name="UsersId">
+                       @foreach (var user in Model)
+                       {
+                           <option value="@user.Id">@user.UserName</option>
+                       }
+                       </select>  
+                        <input type="hidden" value="@ViewBag.ProjectId" name="ProjectId"/>
+                    </div>
+                </div>
+
+                
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Добавить" class="btn btn-default" />
+                    </div>
+                </div>
+
+            }
+        </section>
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

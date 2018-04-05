@@ -28,56 +28,13 @@
                 </li>
 
                 @if (User.IsInRole("AdminMDW"))
-    {
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Проекты</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown03">
-                    @Html.ActionLink("Добавление", "AddProject", "Project", null, new { @class = "dropdown-item" })
-                    @Html.ActionLink("Список всех проектов", "GetAllProject", "Projects", null, new { @class = "dropdown-item" })
-                    @Html.ActionLink("Назначение роли", "SetRoleUser", "ControlUser", null, new { @class = "dropdown-item" })
-                </div>
-            </li>
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Пользователи</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown03">
-                    @Html.ActionLink("Добавление", "Register", "Account", null, new { @class = "dropdown-item" })
-                    @Html.ActionLink("Список всех пользователей", "GetAllUsers", "ControlUser", null, new { @class = "dropdown-item" })
-                    @Html.ActionLink("Назначение роли", "SetRoleUser", "ControlUser", null, new { @class = "dropdown-item" })
-                </div>
-            </li>
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Роли</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown03">
-                    @Html.ActionLink("Добавление", "AddRole", "Role", null, new { @class = "dropdown-item" })
-                    @Html.ActionLink("Список всех ролей", "GetAllRoles", "Role", null, new { @class = "dropdown-item" })
-                </div>
-            </li>
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Статусы</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown03">
-                    @Html.ActionLink("Добавление", "Index", "Status", null, new { @class = "dropdown-item" })
-                </div>
-            </li>
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Этапы проекта</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown03">
-                    @Html.ActionLink("Добавление", "Index", "Stage", null, new { @class = "dropdown-item" })
-
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Приоритеты</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown03">
-                    @Html.ActionLink("Добавление", "AddPriority", "Priority", null, new { @class = "dropdown-item" })
-
-                </div>
-            </li>
-}
-
+                {
+                    @Html.Partial("_AdminMenu")
+                }
+                else
+                {
+                    @Html.Partial("_UserMenu")
+                }
             </ul>
             <span class="navbar-text">
                 @Html.Partial("_LoginPartial")

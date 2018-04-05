@@ -25,6 +25,31 @@ namespace WebMDW.Controllers
         }
 
         [Authorize]
+        public ActionResult AddUserInProject(Guid Id)
+        {
+            ViewBag.ProjectId = Id;
+
+            return View(_context.Users.ToList());
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult> SaveUserInProject(Guid ProjectId, List<ApplicationUser> UsersId)
+        {
+            var _project = _context.Projects.FirstOrDefault(a => a.Id == ProjectId);
+
+            foreach (var user in UsersId)
+            {
+                var _selectUser = _context.Users.FirstOrDefault(a => a.Id == user.Id);
+
+                _project.User.Add(_selectUser);
+                _context.SaveChanges();
+            };
+
+            return RedirectToAction("AddUserInProject", new { id = _project.Id});
+        }
+
+        [Authorize]
         public ActionResult AddProject()
         {
             return View();

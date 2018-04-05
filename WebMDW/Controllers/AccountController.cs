@@ -57,8 +57,14 @@ namespace WebMDW.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            if (!User.Identity.IsAuthenticated)
+            {
+                ViewBag.ReturnUrl = returnUrl;
+                return View();
+            }
+
+            return RedirectToAction("MyProjects", "Project");
+            
         }
 
         //

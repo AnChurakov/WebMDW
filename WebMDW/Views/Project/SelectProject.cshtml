@@ -10,17 +10,19 @@
         {
         <div class="btn-group" role="group" aria-label="Basic example">
             @Html.ActionLink("Добавление задачи", "AddTask", "Task", new { id = Model.Id }, new { @class = "btn btn-warning" })
-            <button type="button" class="btn btn-warning">Middle</button>
-            <button type="button" class="btn btn-warning">Right</button>
+            <button type="button" class="btn btn-warning">Изменить статус</button>
+            <button type="button" class="btn btn-warning">Изменить этап</button>
+            <button type="button" class="btn btn-warning">Изменить процент завершения</button>
+            @Html.ActionLink("Добавление пользователей", "AddUserInProject", "Project", new { id = Model.Id }, new { @class = "btn btn-warning"})
         </div>
            
         }
 
-        <h4 class="display-4">@Model.Name</h4>
+        <h5 class="display-5">@Model.Name</h5>
         Этап: <span class="badge badge-pill badge-dark">@Model.Stages.Name</span><br />
-        Статус: <span class="badge badge-pill badge-dark">@Model.Status.Name</span><br /><br />
+        Статус: <span class="badge badge-pill badge-dark">@Model.Status.Name</span><br />
         Проверка результата: <a href="#">@Model.UrlProjectDemo</a>
-        <br />
+        <br /><br />
 
         <span>Проект завершен:</span>
         <div class="progress">
@@ -52,22 +54,28 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">@task.Name</h5>
-                        <p class="text-dark">Приоритет:
-                        
-                        @if (task.Priority.Name == "Высокий")
-                        {
-                            <span class="badge badge-pill badge-danger">@task.Priority.Name</span>
-                        }
-                        else if (task.Priority.Name == "Средний")
-                        {
-                            <span class="badge badge-pill badge-warning">@task.Priority.Name</span>
-                        }
-                        else
-                        {
-                            <span class="badge badge-pill badge-info">@task.Priority.Name</span>
-                        }
+                        <p class="text-dark">
+                            Приоритет:
 
+                            @if (task.Priority.Name == "Высокий")
+        {
+                    <span class="badge badge-pill badge-danger">@task.Priority.Name</span>
+}
+else if (task.Priority.Name == "Средний")
+{
+                    <span class="badge badge-pill badge-warning">@task.Priority.Name</span>
+}
+else
+{
+                    <span class="badge badge-pill badge-info">@task.Priority.Name</span>
+}
                         </p>
+
+                        @if (User.IsInRole("AdminMDW"))
+    {
+                    @Html.ActionLink("Удалить", "DeleteTask", "Task", new { id = task.Id }, new { @class = "btn btn-outline-danger btn-sm" })
+                    @Html.ActionLink("Завершить", "Success", "Task", new { id = task.Id }, new { @class = "btn btn-outline-success btn-sm" })
+}
                     </div>
                 </div>
             </div>

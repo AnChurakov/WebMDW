@@ -1,0 +1,43 @@
+﻿@model WebMDW.Models.RoleViewModel
+<h2>Назначение роли</h2>
+
+<div class="row">
+    <div class="col-md-8">
+      
+            @using (Html.BeginForm("SetRole", "ControlUser", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label class="col-md-5 control-label">Роль</label>
+                    <div class="col-md-6">
+                        <select class="form-control" name="RoleId">
+                            @foreach (var role in Model.Role)
+                            {
+                                <option value="@role.Id">@role.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-5">Пользователь</label>
+                    <div class="col-md-6">
+                        <select class="form-control" name="UserId">
+                            @foreach (var user in Model.Users)
+                            {
+                                <option value="@user.Id">@user.UserName</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Добавить" class="btn btn-default" />
+                    </div>
+                </div>
+
+            }
+       
+    </div>
+
+</div>

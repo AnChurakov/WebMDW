@@ -1,0 +1,32 @@
+﻿@model WebMDW.Models.Priority.PriorityModel
+
+<div class="row">
+    <div class="col-md-8">
+        <h3>Добавление нового приоритета</h3>
+        <section id="loginForm">
+            @using (Html.BeginForm("CreateNewPriority", "Priority", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name, new { @class = "col-md-5 control-label" })
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Добавить" class="btn btn-default" />
+                    </div>
+                </div>
+
+            }
+        </section>
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
