@@ -11,6 +11,8 @@ namespace WebMDW.Controllers
 {
     public class StatusController : Controller
     {
+        ApplicationDbContext _context = new ApplicationDbContext();
+
         // GET: Status
         [Authorize]
         public ActionResult Index()
@@ -22,7 +24,6 @@ namespace WebMDW.Controllers
         [Authorize]
         public async Task<ActionResult> CreateNewStatus(StatusModel model)
         {
-            ApplicationDbContext _context = new ApplicationDbContext();
 
             if (ModelState.IsValid)
             {
@@ -37,6 +38,14 @@ namespace WebMDW.Controllers
             }
 
             return View("Index");
+        }
+
+        [Authorize]
+        public StatusModel GetStatus(string Name)
+        {
+            var _status = _context.Status.FirstOrDefault(a => a.Name == Name);
+
+            return _status;
         }
     }
 }

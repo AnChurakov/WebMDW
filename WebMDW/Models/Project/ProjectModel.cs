@@ -17,6 +17,9 @@ namespace WebMDW.Models.Project
         [Required]
         [Display(Name = "Название проекта")]
         public string Name { get; set; }
+
+        [Display(Name = "Цена проекта")]
+        public int Price { get; set; }
         
         [Required]
         [Display(Name = "Дата начала проекта")]

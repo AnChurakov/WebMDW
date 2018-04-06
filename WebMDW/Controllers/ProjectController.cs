@@ -63,6 +63,7 @@ namespace WebMDW.Controllers
             return View(Projects);
         }
 
+
         [Authorize]
         public ActionResult SelectProject(Guid Id)
         {
@@ -87,6 +88,12 @@ namespace WebMDW.Controllers
             return SelectStatus;
         }
 
+        [Authorize]
+        public ProjectModel GetProject(Guid Id)
+        {
+            return _context.Projects.FirstOrDefault(a => a.Id == Id);
+        }
+
         [HttpPost]
         [Authorize]
         public RedirectToRouteResult CreateNewProject(ProjectModel model)
@@ -102,6 +109,7 @@ namespace WebMDW.Controllers
                     Id = Guid.NewGuid(),
                     Name = s,
                     ProcentComplete = 0,
+                    Price = model.Price,
                     DateBegin = DateTime.Now,
                     DateEnd = null,
                     UrlProjectDemo = f,
@@ -115,6 +123,18 @@ namespace WebMDW.Controllers
              _context.SaveChanges();
 
             return RedirectToAction("GetAllProject");
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult> Delete(Guid ProjectId)
+        {
+            var project = GetProject(ProjectId);
+
+            _context.Projects.Remove(project);
+            _context.SaveChanges();
+
+            return RedirectToAction("GetAllProject", "Project");
         }
 
     }

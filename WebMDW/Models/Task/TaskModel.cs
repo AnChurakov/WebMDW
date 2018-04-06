@@ -25,5 +25,7 @@ namespace WebMDW.Models.Task
         public virtual Priority.PriorityModel Priority { get; set; }
 
         public virtual ICollection<Project.ProjectModel> Projects { get; set; }
+
+        public virtual Status.StatusModel Status { get; set; }
     }
 }

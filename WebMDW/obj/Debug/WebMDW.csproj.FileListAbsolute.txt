@@ -293,3 +293,5 @@ D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.pdb
 D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.Migrations.CheckMigration.resources
 D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.Migrations.AddRelationProjectTask.resources
 D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.Migrations.AddNullDateTaskModel.resources
+D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.Migrations.AddRelationTaskStatusProject.resources
+D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.Migrations.AddFirstLastNameUser.resources

@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-md-12">
         <table class="table">
-            <thead class="thead-dark">
+            <thead class="thead-light">
                 <tr>
                     <th scope="col">Название проекта</th>
                     <th scope="col">Статус</th>
@@ -37,7 +37,9 @@
                     </td>
 
                     <td>
-                        <a href="Project/SelectProject/@project.Id" class="btn btn-primary">Выбрать</a>
+                        @Html.ActionLink("Выбрать", "SelectProject", "Project", new { id = project.Id }, new { @class = "btn btn-outline-primary btn-sm" })
+                        @Html.ActionLink("Удалить", "Delete", "Project", new { projectid = project.Id }, new { @class = "btn btn-outline-danger btn-sm" })
+
                     </td>
                 </tr>
                 }

@@ -15,5 +15,7 @@ namespace WebMDW.Models.Status
         public string Name { get; set; }
 
         public ICollection<Project.ProjectModel> Projects { get; set; }
+
+        public virtual ICollection<Task.TaskModel> Tasks { get; set; }
     }
 }

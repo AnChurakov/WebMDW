@@ -1,26 +1,38 @@
 ﻿@using WebMDW.Models.Task
 @model WebMDW.Models.Project.ProjectModel
 
-
-
 <div class="row">
     <div class="col-md-12">
 
         @if (User.IsInRole("AdminMDW"))
         {
         <div class="btn-group" role="group" aria-label="Basic example">
-            @Html.ActionLink("Добавление задачи", "AddTask", "Task", new { id = Model.Id }, new { @class = "btn btn-warning" })
-            <button type="button" class="btn btn-warning">Изменить статус</button>
-            <button type="button" class="btn btn-warning">Изменить этап</button>
-            <button type="button" class="btn btn-warning">Изменить процент завершения</button>
-            @Html.ActionLink("Добавление пользователей", "AddUserInProject", "Project", new { id = Model.Id }, new { @class = "btn btn-warning"})
+            @Html.ActionLink("Добавление задачи", "AddTask", "Task", new { id = Model.Id }, new { @class = "btn btn-warning btn-sm" })
+            <button type="button" class="btn btn-warning btn-sm">Изменить статус</button>
+            <button type="button" class="btn btn-warning btn-sm">Изменить этап</button>
+            <button type="button" class="btn btn-warning btn-sm">Изменить процент завершения</button>
+            @Html.ActionLink("Добавление пользователей", "AddUserInProject", "Project", new { id = Model.Id }, new { @class = "btn btn-warning btn-sm"})
         </div>
            
         }
 
         <h5 class="display-5">@Model.Name</h5>
         Этап: <span class="badge badge-pill badge-dark">@Model.Stages.Name</span><br />
-        Статус: <span class="badge badge-pill badge-dark">@Model.Status.Name</span><br />
+        Статус:
+          @if (Model.Status.Name == "В работе")
+                        {
+                            <span class="badge badge-pill badge-info">@Model.Status.Name</span>
+                        }
+                        else if(Model.Status.Name == "Завершен")
+                        {
+                            <span class="badge badge-pill badge-success">@Model.Status.Name</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-pill badge-danger">@Model.Status.Name</span>
+                        }
+        <br />
+        Цена проекта: <span class="badge badge-pill badge-dark">@Model.Price рублей</span><br />
         Проверка результата: <a href="#">@Model.UrlProjectDemo</a>
         <br /><br />
 
@@ -32,15 +44,17 @@
     </div>
 
     <div class="col-md-12" style="margin-top:20px;">
-     <h4>Задачи проекта</h4>
+     <h5>Задачи проекта</h5>
      <br />
 
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">В работе</a>
-        </li>
-        
-    </ul>
+     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+         <li class="nav-item">
+             <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">В работе</a>
+         </li>
+         <li class="nav-item">
+             <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Завершены</a>
+         </li>
+     </ul>
     </div>
 </div>
 
@@ -48,7 +62,7 @@
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <div class="row">
             
-            @foreach (var task in Model.Tasks.OrderByDescending(a => a.Priority.Name == "Высокий"))
+            @foreach (var task in Model.Tasks.OrderByDescending(a => a.Priority.Name == "Высокий" && a.Status.Name == "В работе"))
             {
             <div class="col-md-3" style="margin-top:20px;">
                 <div class="card">
@@ -57,25 +71,28 @@
                         <p class="text-dark">
                             Приоритет:
 
-                            @if (task.Priority.Name == "Высокий")
-        {
-                    <span class="badge badge-pill badge-danger">@task.Priority.Name</span>
-}
-else if (task.Priority.Name == "Средний")
-{
-                    <span class="badge badge-pill badge-warning">@task.Priority.Name</span>
-}
-else
-{
-                    <span class="badge badge-pill badge-info">@task.Priority.Name</span>
-}
+                        @if (task.Priority.Name == "Высокий")
+                        {
+                             <span class="badge badge-pill badge-danger">@task.Priority.Name</span>
+                        }
+                        else if (task.Priority.Name == "Средний")
+                        {
+                            <span class="badge badge-pill badge-warning">@task.Priority.Name</span>
+                        }
+                        else
+                        {
+                             <span class="badge badge-pill badge-info">@task.Priority.Name</span>
+                        }
                         </p>
 
-                        @if (User.IsInRole("AdminMDW"))
-    {
-                    @Html.ActionLink("Удалить", "DeleteTask", "Task", new { id = task.Id }, new { @class = "btn btn-outline-danger btn-sm" })
-                    @Html.ActionLink("Завершить", "Success", "Task", new { id = task.Id }, new { @class = "btn btn-outline-success btn-sm" })
-}
+                    @if (User.IsInRole("AdminMDW"))
+                    {
+
+                    @Html.ActionLink("Завершить", "UpdateStatus", "Task", new { id = task.Id, projectid = Model.Id }, new { @class = "btn btn-outline-success btn-sm" })
+
+                    @Html.ActionLink("Удалить", "Delete", "Task", new { id = task.Id, projectid = Model.Id }, new { @class = "btn btn-outline-danger btn-sm" })
+                
+                    }
                     </div>
                 </div>
             </div>
