@@ -336,6 +336,9 @@
     <Content Include="Views\Project\AddUserInProject.cshtml" />
     <Content Include="Views\Shared\_AdminMenu.cshtml" />
     <Content Include="Views\Shared\_UserMenu.cshtml" />
+    <Content Include="Views\Status\Update.cshtml" />
+    <Content Include="Views\Stage\Update.cshtml" />
+    <Content Include="Views\Project\UpdateProcent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803250730061_FirstMigr.resx">

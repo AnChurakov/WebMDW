@@ -137,5 +137,25 @@ namespace WebMDW.Controllers
             return RedirectToAction("GetAllProject", "Project");
         }
 
+        [Authorize]
+        public ActionResult UpdateProcent(Guid Id)
+        {
+            ViewBag.ProjectId = Id;
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public RedirectToRouteResult UpdateProcentProject(Guid ProjectId, int Procent)
+        {
+            var _project = GetProject(ProjectId);
+
+            _project.ProcentComplete = Procent;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("SelectProject", "Project", new { id = ProjectId});
+        }
+
     }
 }

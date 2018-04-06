@@ -8,10 +8,10 @@
         {
         <div class="btn-group" role="group" aria-label="Basic example">
             @Html.ActionLink("Добавление задачи", "AddTask", "Task", new { id = Model.Id }, new { @class = "btn btn-warning btn-sm" })
-            <button type="button" class="btn btn-warning btn-sm">Изменить статус</button>
-            <button type="button" class="btn btn-warning btn-sm">Изменить этап</button>
-            <button type="button" class="btn btn-warning btn-sm">Изменить процент завершения</button>
-            @Html.ActionLink("Добавление пользователей", "AddUserInProject", "Project", new { id = Model.Id }, new { @class = "btn btn-warning btn-sm"})
+            @Html.ActionLink("Изменить статус", "Update", "Status", new { id = Model.Id }, new { @class = "btn btn-warning btn-sm" })
+            @Html.ActionLink("Изменить этап", "Update", "Stage", new { id = Model.Id }, new { @class = "btn btn-warning btn-sm" })
+            @Html.ActionLink("Изменить % завершения", "UpdateProcent", "Project", new { id = Model.Id }, new { @class = "btn btn-warning btn-sm" })
+            @Html.ActionLink("Добавление пользователей", "AddUserInProject", "Project", new { id = Model.Id }, new { @class = "btn btn-warning btn-sm" })
         </div>
            
         }
@@ -33,12 +33,12 @@
                         }
         <br />
         Цена проекта: <span class="badge badge-pill badge-dark">@Model.Price рублей</span><br />
-        Проверка результата: <a href="#">@Model.UrlProjectDemo</a>
+        Проверка результата: <a href="@Model.UrlProjectDemo">@Model.UrlProjectDemo</a>
         <br /><br />
 
         <span>Проект завершен:</span>
         <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width:@Model.ProcentComplete"
+            <div class="progress-bar" role="progressbar" style="width:@Model.ProcentComplete%"
                  aria-valuenow="@Model.ProcentComplete" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
     </div>

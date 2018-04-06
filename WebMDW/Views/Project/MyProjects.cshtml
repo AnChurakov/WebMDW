@@ -15,7 +15,6 @@
                 <p class="card-text">Статус: @myproject.Status.Name</p>
                 <p class="card-text">Заверешн на: @myproject.ProcentComplete</p>
                 @Html.ActionLink("Посмотреть", "SelectProject", "Project", new { id = myproject.Id}, new { @class="btn btn-primary" })
-                @*<a href="~/SelectProject/@myproject.Id" class="btn btn-primary">Посмотреть</a>*@
             </div>
         </div>
         }
