@@ -295,3 +295,10 @@ D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.Migrations.AddRelationProjectTask.resource
 D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.Migrations.AddNullDateTaskModel.resources
 D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.Migrations.AddRelationTaskStatusProject.resources
 D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.Migrations.AddFirstLastNameUser.resources
+D:\asp\WebMDW\WebMDW\bin\System.Net.Http.Formatting.dll
+D:\asp\WebMDW\WebMDW\bin\System.Web.Http.dll
+D:\asp\WebMDW\WebMDW\bin\System.Web.Http.WebHost.dll
+D:\asp\WebMDW\WebMDW\bin\System.Net.Http.Formatting.xml
+D:\asp\WebMDW\WebMDW\bin\System.Web.Http.xml
+D:\asp\WebMDW\WebMDW\bin\System.Web.Http.WebHost.xml
+D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.Migrations.test.resources

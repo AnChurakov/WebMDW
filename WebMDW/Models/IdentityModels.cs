@@ -36,6 +36,8 @@ namespace WebMDW.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            
+            //Configuration.LazyLoadingEnabled = false;
         }
 
         public static ApplicationDbContext Create()
