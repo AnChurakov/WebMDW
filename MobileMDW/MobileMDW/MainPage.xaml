@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MobileMDW"
+             x:Class="MobileMDW.MainPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout BackgroundColor="White" Padding="20">
+
+        <Image Source="logo.png" WidthRequest="200" HeightRequest="70" Margin="0, 60, 0, 0"/>
+
+        <Label Text="ManagerDW" TextColor="#007dff" Margin="0, 12, 0, 0" FontSize="40" HorizontalOptions="Center">
+            <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="Android">Raleway-Light.ttf#Raleway-Light</On>
+                </OnPlatform>
+            </Label.FontFamily>
+        </Label>
+
+        <Label Text="Отслеживайте всю необходимую информацию о разработке Вашего проекта!" Margin="0, 10, 0, 0"
+        TextColor="#4b4a4a" FontSize="15"  HorizontalTextAlignment="Center">
+            <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="Android">Raleway-Regular.ttf#Raleway-Regular</On>
+                </OnPlatform>
+            </Label.FontFamily>
+        </Label>
+
+        <Entry Placeholder="Логин"  Margin="10" FontSize="14" PlaceholderColor="#8f8f8f" />
+        <Entry Placeholder="Пароль"  Margin="10" FontSize="14" IsPassword="True" PlaceholderColor="#8f8f8f"/>
+
+        <Button Text="Авторизоваться"
+                BorderRadius="20" 
+                TextColor="white" 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                FontSize="13"
+                FontFamily="Raleway-Thin#Raleway-Thin"
+                WidthRequest="170"
+                HeightRequest="50"
+                BackgroundColor="#007dff" 
+                Clicked="ClickBtn" 
+                x:Name="clickbtn"/>
+
+
+
+    </StackLayout>
+</ContentPage>

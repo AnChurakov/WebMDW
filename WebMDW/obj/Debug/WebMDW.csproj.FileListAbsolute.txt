@@ -301,4 +301,3 @@ D:\asp\WebMDW\WebMDW\bin\System.Web.Http.WebHost.dll
 D:\asp\WebMDW\WebMDW\bin\System.Net.Http.Formatting.xml
 D:\asp\WebMDW\WebMDW\bin\System.Web.Http.xml
 D:\asp\WebMDW\WebMDW\bin\System.Web.Http.WebHost.xml
-D:\asp\WebMDW\WebMDW\obj\Debug\WebMDW.Migrations.test.resources

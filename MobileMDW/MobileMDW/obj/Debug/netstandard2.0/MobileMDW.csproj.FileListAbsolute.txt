@@ -1,0 +1,12 @@
+D:\asp\WebMDW\MobileMDW\MobileMDW\bin\Debug\netstandard2.0\MobileMDW.deps.json
+D:\asp\WebMDW\MobileMDW\MobileMDW\bin\Debug\netstandard2.0\MobileMDW.dll
+D:\asp\WebMDW\MobileMDW\MobileMDW\obj\Debug\netstandard2.0\MobileMDW.csprojResolveAssemblyReference.cache
+D:\asp\WebMDW\MobileMDW\MobileMDW\obj\Debug\netstandard2.0\MobileMDW.csproj.CoreCompileInputs.cache
+D:\asp\WebMDW\MobileMDW\MobileMDW\obj\Debug\netstandard2.0\MobileMDW.App.xaml.g.cs
+D:\asp\WebMDW\MobileMDW\MobileMDW\obj\Debug\netstandard2.0\MobileMDW.MainPage.xaml.g.cs
+D:\asp\WebMDW\MobileMDW\MobileMDW\obj\Debug\netstandard2.0\MobileMDW.AssemblyInfoInputs.cache
+D:\asp\WebMDW\MobileMDW\MobileMDW\obj\Debug\netstandard2.0\MobileMDW.AssemblyInfo.cs
+D:\asp\WebMDW\MobileMDW\MobileMDW\bin\Debug\netstandard2.0\MobileMDW.pdb
+D:\asp\WebMDW\MobileMDW\MobileMDW\obj\Debug\netstandard2.0\MobileMDW.dll
+D:\asp\WebMDW\MobileMDW\MobileMDW\obj\Debug\netstandard2.0\MobileMDW.pdb
+D:\asp\WebMDW\MobileMDW\MobileMDW\obj\Debug\netstandard2.0\MobileMDW.Page1.xaml.g.cs
