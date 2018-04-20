@@ -33,23 +33,6 @@ namespace WebMDW.Controllers
         }
 
         [Authorize]
-        [HttpPost]
-        public async Task<ActionResult> SaveUserInProject(Guid ProjectId, List<ApplicationUser> UsersId)
-        {
-            var _project = _context.Projects.FirstOrDefault(a => a.Id == ProjectId);
-
-            foreach (var user in UsersId)
-            {
-                var _selectUser = _context.Users.FirstOrDefault(a => a.Id == user.Id);
-
-                _project.User.Add(_selectUser);
-                _context.SaveChanges();
-            };
-
-            return RedirectToAction("AddUserInProject", new { id = _project.Id});
-        }
-
-        [Authorize]
         public ActionResult AddProject()
         {
             return View();
@@ -94,6 +77,23 @@ namespace WebMDW.Controllers
             return _context.Projects.FirstOrDefault(a => a.Id == Id);
         }
 
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult> SaveUserInProject(Guid ProjectId, List<ApplicationUser> UsersId)
+        {
+            var _project = _context.Projects.FirstOrDefault(a => a.Id == ProjectId);
+
+            foreach (var user in UsersId)
+            {
+                var _selectUser = _context.Users.FirstOrDefault(a => a.Id == user.Id);
+
+                _project.User.Add(_selectUser);
+                _context.SaveChanges();
+            };
+
+            return RedirectToAction("AddUserInProject", new { id = _project.Id });
+        }
+
         [HttpPost]
         [Authorize]
         public RedirectToRouteResult CreateNewProject(ProjectModel model)
@@ -101,18 +101,18 @@ namespace WebMDW.Controllers
             var stage = GetStage("Анализ требований");
             var status = GetStatus("В работе");
             var user = _context.Users.FirstOrDefault(a => a.UserName == User.Identity.Name);
-            var s = model.Name;
-            var f = model.UrlProjectDemo;
+            var nameProject = model.Name;
+            var urlDemoPRoject = model.UrlProjectDemo;
 
             ProjectModel project = new ProjectModel
                 {
                     Id = Guid.NewGuid(),
-                    Name = s,
+                    Name = nameProject,
                     ProcentComplete = 0,
                     Price = model.Price,
                     DateBegin = DateTime.Now,
                     DateEnd = null,
-                    UrlProjectDemo = f,
+                    UrlProjectDemo = urlDemoPRoject,
                     Stages = stage,
                     Status = status,
                     User = new List<ApplicationUser>() { user },

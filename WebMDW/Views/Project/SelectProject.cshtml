@@ -1,6 +1,8 @@
 ﻿@using WebMDW.Models.Task
 @model WebMDW.Models.Project.ProjectModel
-
+@{ 
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
+}
 <div class="row">
     <div class="col-md-12">
 
@@ -34,6 +36,11 @@
         <br />
         Цена проекта: <span class="badge badge-pill badge-dark">@Model.Price рублей</span><br />
         Проверка результата: <a href="@Model.UrlProjectDemo">@Model.UrlProjectDemo</a>
+        <span>Контактные лица</span>
+        @foreach(var contact in Model.User)
+        {
+            <span class="text-primary">@contact.Email</span>
+        }
         <br /><br />
 
         <span>Проект завершен:</span>
@@ -41,6 +48,7 @@
             <div class="progress-bar" role="progressbar" style="width:@Model.ProcentComplete%"
                  aria-valuenow="@Model.ProcentComplete" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
+
     </div>
 
     <div class="col-md-12" style="margin-top:20px;">

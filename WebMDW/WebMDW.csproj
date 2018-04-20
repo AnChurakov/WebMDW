@@ -278,6 +278,10 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\byns.jpg" />
+    <Content Include="Content\dashboard.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\ww.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -287,6 +291,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\Raleway-Regular.ttf" />
+    <Content Include="fonts\Raleway-Thin.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -352,6 +358,9 @@
     <Content Include="Views\Status\Update.cshtml" />
     <Content Include="Views\Stage\Update.cshtml" />
     <Content Include="Views\Project\UpdateProcent.cshtml" />
+    <Content Include="Views\Shared\_LayoutMenu.cshtml" />
+    <Content Include="Views\Shared\_MenuNoDrop.cshtml" />
+    <Content Include="Views\Shared\_StartWindow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803250730061_FirstMigr.resx">
